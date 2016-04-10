@@ -16,7 +16,7 @@ void clkInit(void){
 
 void pinInit(void){
 	// setup output pins
-	PORTD_DIRSET = (1<<OLED_RST | 1<<OLED_DC | 1<<OLED_CS | 1<<OLED_MOSI | 1<<OLED_SCK);
+	PORTD_DIRSET = (1<<OLED_RST | 1<<OLED_DC);
 	// setup input pins, this isnt actually needed; pins are inputs by default
 	PORTC_DIRCLR = (1<<CLIM);
 	PORTD_DIRCLR = (1<<ENC1A | 1<<ENC1B);

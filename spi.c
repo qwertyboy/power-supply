@@ -24,7 +24,7 @@ void spiBegin(uint8_t port, uint8_t numPins, ...){
 			PORTC_DIRSET = 1<<pin;
 			
 			// get the remaining pins
-			for(uint8_t i = 0; i < numPins - 1; i++){\
+			for(uint8_t i = 0; i < numPins - 1; i++){
 				pin = (uint8_t)va_arg(valist, int);
 				
 				if(pin == 6){
@@ -42,7 +42,7 @@ void spiBegin(uint8_t port, uint8_t numPins, ...){
 		case SPI_PORTD:
 			// the first pin is always mosi
 			pin = (uint8_t)va_arg(valist, int);
-			PORTC_DIR |= 1<<pin;
+			PORTD_DIRSET = 1<<pin;
 			
 			// get the remaining pins
 			for(uint8_t i = 0; i < numPins - 1; i++){
@@ -50,10 +50,10 @@ void spiBegin(uint8_t port, uint8_t numPins, ...){
 				
 				if(pin == 6){
 					// miso pin
-					PORTC_DIRCLR = 1<<pin;
-					}else{
+					PORTD_DIRCLR = 1<<pin;
+				}else{
 					// the rest are outputs
-					PORTC_DIR |= 1<<pin;
+					PORTD_DIRSET = 1<<pin;
 				}
 			}
 			
