@@ -21,10 +21,13 @@ int main(void)
 	spiBegin(SPI_PORTC, 5, MOSI, MISO, SCK, ADC_CS, DAC_CS);
 	spiBegin(SPI_PORTD, 3, OLED_MOSI, OLED_SCK, OLED_CS);
 	
+	oledBegin();
+	oledUpdate();
+	
 	// loop 5ever
     while (1) 
     {
-		if((PORTE_IN >> ENC1SW) & 1){
+ 		if((PORTE_IN >> ENC1SW) & 1){
 			PORTC_OUTSET = 1<<ADC_CS;
 		}else{
 			PORTC_OUTCLR = 1<<ADC_CS;

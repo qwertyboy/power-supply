@@ -9,6 +9,8 @@
 #ifndef PINDEFS_H_
 #define PINDEFS_H_
 
+#define nop() do { __asm__ __volatile__ ("nop"); } while (0)
+
 // PORTC pins
 #define CLIM	PIN0
 #define ADC_CS	PIN1
